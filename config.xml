@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "org.informs.vendorqr"
+        versionCode = "10"
+        version     = "0.0.1" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>INFORMS Badge Reader</name>
+
+    <description>
+        PhoneGap Build config for INFORMS Badge Reader, which can scan INFORMS attendee badge QR codes and extract their contact information.
+    </description>
+
+    <author href="https://www.informs.org" email="sangeetha.menon@informs.org">
+        Sangeetha Menon
+    </author>
+
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+    <gap:plugin name="org.apache.cordova.media" />
+    <gap:plugin name="org.apache.cordova.device" />
+
+</widget>

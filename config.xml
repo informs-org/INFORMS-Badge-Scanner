@@ -22,6 +22,6 @@
     <gap:plugin name="org.apache.cordova.device" />
 
     <icon src="badgeapp-icon.png" />
-    <gap:splash src="images/badgeapp-screen.png" gap:platform="ios" width="300" height="400" />
+    <gap:splash src="badgeapp-screen.png" gap:platform="ios" width="300" height="400" />
 
 </widget>

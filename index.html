@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      @import url('css/jquery.mobile-1.4.2.min.css');
+      @import url('css/jquery.mobile.theme-1.4.2.min.css');
+      /*@import url('https://raw.githubusercontent.com/ftlabs/fastclick/master/lib/fastclick.js');*/
+      @import url('css/style.css');
+    </style>
+    <script src="phonegap.js"></script>
+    <script src="barcodescanner.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+  </head>
+  <body>
+  <audio src="audio/ding.mp3" id="ding"></audio>
+  <audio src="audio/buzzer.mp3" id="buzzer"></audio>
+    <div data-role="page" id="main_page">
+      <div data-role="header" data-theme="b">
+        INFORMS Contact QR Scanner
+        <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
+        <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
+      </div>
+      <div data-role="content">
+        <button class="item_menu" id="SCAN" data-theme="a">Scan Badge</button>
+        <button class="item_menu" id="LIST" data-theme="a">Show All Cards</button>
+        <button class="item_menu" id="EMPTY" data-theme="a">Delete All Cards</button>
+        <button class="item_menu" id="SHOW_EMAIL_FORM" data-theme="a">Email All Cards</button>
+<div id="EMAIL_FORM">
+        <div data-role="fieldcontain" id="FORMAT_CHOICES">
+            <fieldset data-role="controlgroup">
+                <legend>Choose a format:</legend>
+                <input type="radio" name="email_format" id="radio-choice-1" value="vcf" checked="checked" />
+                <label for="radio-choice-1">VCARD</label>
+
+                <input type="radio" name="email_format" id="radio-choice-2" value="csv" />
+                <label for="radio-choice-2">CSV</label>
+
+                <input type="radio" name="email_format" id="radio-choice-3" value="html"  />
+                <label for="radio-choice-3">HTML</label>
+            </fieldset>
+        </div>
+        <input type="text" id="EMAIL_ADDRESS" data-theme="a" placeholder="Your email address"></input>
+        <button id="SEND">send</button>
+</div>
+        <div id="collected_card_list"></div>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        INFORMS
+      </div>
+    </div><!-- page -->
+
+    <div data-role="page" id="scanner_page">
+      <div data-role="header" data-theme="b">
+        INFORMS Contact QR Scanner
+        <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
+        <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
+      </div>
+      <div data-role="content">
+        <h2>Scanning for Contact Details</h2>
+        <div data-role="popup" id="popupResult" data-overlay-theme="a" class="popup ui-content" data-transition="pop">
+        </div>
+        <div id="scanned_card">
+        </div>
+        <button id="test_scan_button">NO BADGE</button>
+        <button id="scan_button">SCAN BADGE</button>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        INFORMS
+      </div>
+    </div><!-- page -->
+
+    <div data-role="page" id="editcontact_page">
+      <div data-role="header" data-theme="b">
+        INFORMS Contact QR Scanner
+        <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
+        <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
+      </div>
+      <div data-role="content">
+        <h2>Edit INFORMS Contact</h2>
+        <div id="editform">
+        </div>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        INFORMS
+      </div>
+    </div><!-- page -->
+
+    <div data-role="page" id="options_page" data-theme="d">
+      <div data-role="header" data-theme="b">
+        INFORMS Contact QR Scanner
+        <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
+        <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
+      </div>
+      <div data-role="content" data-theme="b">
+        <h2>Options</h2>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">Auto-close scanner result popup</div>
+          <div class="ui-block-b"><input type="checkbox" id="option_autoclose" /></div>
+          <div class="ui-block-a">Auto-close delay (sec)</div>
+          <div class="ui-block-b"><input type="number" value="2" min="0" max="5" class="input_number" /></div>
+          <div class="ui-block-a">Re-initialize database</div>
+          <div class="ui-block-b"><button id="reinitdb_button">Re-initialize</button></div>
+        </div>
+        <button data-icon="back" id="back_button" data-theme="a">Back</button>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        INFORMS
+      </div>
+    </div><!-- page -->
+  </body>
+</html>

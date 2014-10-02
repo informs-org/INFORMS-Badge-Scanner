@@ -1,0 +1,53 @@
+body {
+background: #bbd4f1; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #bbd4f1 0%, #c4dff6 0%, #cbd5fb 0%, #ffe3bb 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#bbd4f1), color-stop(0%,#c4dff6), color-stop(0%,#cbd5fb), color-stop(100%,#ffe3bb)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* IE10+ */
+background: linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', endColorstr='#ffe3bb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.ui-page { background: transparent; }
+.ui-content { padding: 10px; }
+.ui-header { height: 38px; padding: 3px 12px; text-align: center;}
+.ui-footer { padding-left: 5px; text-align: center; }
+.ui-popup { height: 300px; width: 300px;  }
+.ui-grid-a .ui-block-a { padding-top: 5px; width: 66%; }
+.ui-grid-a .ui-block-b { width: 34%; }
+.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b { height:60px; border-width: 0 0 1px 0; border-style: solid; border-color: #999; }
+.ui-header .ui-btn { height: 18px; }
+.ui-checkbox input { width: 30px; height: 30px; }
+
+.contact_name {
+  background-color:purple;
+  color:white;
+  border:1px dotted purple;
+  vertical-align:bottom;
+  padding:3px;
+}
+
+.details {
+  color:purple;
+  padding-left:40px;
+}
+
+.card {
+  border:1px solid black;
+  background:white;
+  margin:auto;
+}
+
+#LIST { display:none }
+#EMPTY { display:none }
+#SHOW_EMAIL_FORM { display:none }
+#EMAIL_FORM { display:none }
+
+#scan_button { /*background-image: url('../images/icons-png/qrcode.png');*/ width: 150px; height: 100px; margin: 0 auto; box-shadow: 10px 10px 10px #878; display:block}
+#scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; }
+
+#test_scan_button { /*background-image: url('../images/icons-png/qrcode.png');*/ width: 150px; height: 100px; margin: 0 auto; box-shadow: 10px 10px 10px #878; margin:20px; display:block}
+#test_scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; margin:20px; }
+
+#popupResult { background: transparent; box-shadow: none; border: none; }
+#popupResult img { display: none; }

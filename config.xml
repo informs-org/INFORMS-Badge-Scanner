@@ -24,4 +24,7 @@
     <icon src="badgeapp-icon.png" gap:platform="ios" width="60" height="60" />
     <gap:splash src="badgeapp-screen.png" gap:platform="ios" width="300" height="400" />
 
+    <icon src="badgeapp-icon.png" gap:platform="android" gap:qualifier="ldpi" />
+    <gap:splash src="badgeapp-screen.png" gap:platform="android" gap:qualifier="ldpi" />
+
 </widget>

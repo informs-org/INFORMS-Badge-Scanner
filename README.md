@@ -1,4 +1,4 @@
 INFORMS_Vendor_Scanner
 ======================
 
-Scanner Application for Vendors to Scan INFORMS meeting attendees' badges
+Scanner Application for users to scan INFORMS meeting attendees' badge QR codes to get proprietary contact information.

@@ -70,27 +70,22 @@ function getCardHTML(arr, showActionButtons)
 
     return display;
 }
+function csv_prep(str)
+{
+  return str.toString().replace(/"/g, '""');
+}
 
 function getCardCSV(arr)
 {
-/*
-    var display = ''+arr.FIRST_NAME+' '+arr.LAST_NAME+
-               ', '+arr.EMAIL+
-               ', '+arr.ORGANIZATION+
-               ', '+arr.TITLE+
-               ', '+arr.CITY+
-               ', '+arr.STATE+
-               ', '+arr.COUNTRY+
-               "\n";
-*/
-    var display = '"'+arr.FIRST_NAME+' '+arr.LAST_NAME+
-               '", "'+arr.EMAIL+
-               '", "'+arr.ORGANIZATION+
-               '", "'+arr.TITLE+
-               '", "'+arr.CITY+
-               '", "'+arr.STATE+
-               '", "'+arr.COUNTRY+
-               "\"\n";
+    var display = '"'+csv_prep(arr.FIRST_NAME)+' '+csv_prep(arr.LAST_NAME)+
+                '","'+csv_prep(arr.EMAIL)+
+                '","'+csv_prep(arr.ORGANIZATION)+
+                '","'+csv_prep(arr.TITLE)+
+                '","'+csv_prep(arr.CITY)+
+                '","'+csv_prep(arr.STATE)+
+                '","'+csv_prep(arr.COUNTRY)+
+                "\"\n";
+
     return display;
 }
 
@@ -283,8 +278,7 @@ function emailCollectedCards(email, format)
          var therows = result.rows;
          var count = therows.length;
          var content = '';
-         if( format == 'csv' ) content = '"NAME", "EMAIL", "ORGANIZATION", "TITLE", "CITY", "STATE", "COUNTRY"'+"\n";
-         //if( format == 'csv' ) content = "NAME, EMAIL, ORGANIZATION, TITLE, CITY, STATE, COUNTRY\n";
+         if( format == 'csv' ) content = '"NAME","EMAIL","ORGANIZATION","TITLE","CITY","STATE","COUNTRY"'+"\n";
          for( var i = 0; i < count; i++) {
             var therow = result.rows.item(i);
             if( format == 'html' ) content += getCardHTML(therow, false);

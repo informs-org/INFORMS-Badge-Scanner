@@ -28,14 +28,19 @@
         <button class="item_menu" id="EMPTY" data-theme="a">Delete All Cards</button>
         <button class="item_menu" id="SHOW_EMAIL_FORM" data-theme="a">Email All Cards</button>
         <div id="EMAIL_FORM">
-            <fieldset data-role="ui-field-contain">
-              <select name="email_format" id="FORMAT_CHOICES">
-                <option value="" />Select a format:</option>
-                <option value="vcf" checked="checked" />VCF</option>
-                <option value="csv" />CSV</option>
-                <option value="html" />HTML</option>
-              </select>
+            <div data-role="fieldcontain" id="FORMAT_CHOICES">
+            <fieldset data-role="controlgroup">
+                <legend>Choose a format:</legend>
+                <input type="radio" name="email_format" id="radio-choice-1" value="vcf" checked="checked" />
+                <label for="radio-choice-1">VCARD</label>
+
+                <input type="radio" name="email_format" id="radio-choice-2" value="csv" />
+                <label for="radio-choice-2">CSV</label>
+
+                <input type="radio" name="email_format" id="radio-choice-3" value="html"  />
+                <label for="radio-choice-3">HTML</label>
             </fieldset>
+            </div>
             <input type="text" id="EMAIL_ADDRESS" data-theme="a" placeholder="Your email address"></input>
             <button id="SEND">send</button>
         </div>

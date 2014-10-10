@@ -407,9 +407,11 @@ $(document).ready( function() {
   $('#scan_button').click( function() {
     scan();
   });
+/*
   $('#test_scan_button').click( function() {
     getContact('http://q.informs.org/?q=test');
   });
+*/
   $('.popup').click( function() {
     clearTimeout(popupTimer);
     $(this).popup("close");

@@ -331,6 +331,7 @@ function displayContactActionButtons()
   db.transaction( function(tx) {
     var sql = "SELECT * FROM CONTACT";
     tx.executeSql( sql, [], function(tx, result) {
+alert(result.rows.length + ' rows in CONTACT');
       if( result.rows.length == 0 ) {
         $('#LIST').hide();
         $('#EMPTY').hide();

@@ -9,13 +9,13 @@ var buzzer = null;
 
 // create the database tables if they do not already exist
 db.transaction(function ( tx ) {
-  tx.executeSql('DROP TABLE CONTACT');
+  //tx.executeSql('DROP TABLE CONTACT');
   tx.executeSql('CREATE TABLE IF NOT EXISTS CONTACT ( ENC_CUST_ID PRIMARY KEY, FIRST_NAME, LAST_NAME, EMAIL, ORGANIZATION, TITLE, CITY, STATE, COUNTRY, NOTE )');
   //tx.executeSql('DELETE FROM CONTACT'); // for testing purposes, clearing the table each page load   
   //alert( 'database initialization complete' );  
 });
 
-function getCardHTML(arr, showActionButtons)
+function getCardHTML(arr, showActionButtons, showNote)
 {
     var display = '<table style="border:1px solid black; background:white; margin:auto; width:100%">'+
                   '<tr>'+
@@ -66,6 +66,16 @@ function getCardHTML(arr, showActionButtons)
                       //'<td>COUNTRY</td>'+
                       '<td class="details">'+arr.COUNTRY+'</td>'+
                   '</tr>';
+
+    if( showNote == true )
+    {
+       if( arr.NOTE != '' )
+       display += '<tr>'+
+                      //'<td>NOTE</td>'+
+                      '<td class="details">'+arr.NOTE+'</td>'+
+                  '</tr>';
+    }
+
        display += '</table>';
 
     return display;
@@ -84,6 +94,7 @@ function getCardCSV(arr)
                 '","'+csv_prep(arr.CITY)+
                 '","'+csv_prep(arr.STATE)+
                 '","'+csv_prep(arr.COUNTRY)+
+                '","'+csv_prep(arr.NOTE)+
                 "\"\n";
 
     return display;
@@ -96,6 +107,7 @@ function getCardVCF(arr)
                 "N:\n"+arr.LAST_NAME+";"+arr.FIRST_NAME+";;;\n"+
                 "FN:"+arr.FIRST_NAME+" "+arr.LAST_NAME+"\n"+
                 "TITLE:"+arr.TITLE+"\n"+
+                "NOTE:"+arr.NOTE+"\n"+
                 "ADR;TYPE=WORK:;;;"+arr.CITY+';'+arr.STATE+';;'+arr.COUNTRY+"\n"+
                 "ORG:"+arr.ORGANIZATION+"\n"+
                 "END:VCARD\n";
@@ -104,7 +116,7 @@ function getCardVCF(arr)
 
 function data_success(json) {
   if ( typeof json === 'object' ) {
-    display = getCardHTML(json.attendee[0], true);
+    display = getCardHTML(json.attendee[0], true, false);
     $('#p').html(display);
 
     db.transaction( function(tx) {
@@ -263,7 +275,7 @@ function showCollectedCards()
          var display = '';
          for( var i = 0; i < count; i++) {
             var therow = result.rows.item(i);
-            display += getCardHTML(therow, true);
+            display += getCardHTML(therow, true, false);
          }
          $('#collected_card_list').html(display);
        });
@@ -278,10 +290,10 @@ function emailCollectedCards(email, format)
          var therows = result.rows;
          var count = therows.length;
          var content = '';
-         if( format == 'csv' ) content = '"NAME","EMAIL","ORGANIZATION","TITLE","CITY","STATE","COUNTRY"'+"\n";
+         if( format == 'csv' ) content = '"NAME","EMAIL","ORGANIZATION","TITLE","CITY","STATE","COUNTRY","NOTES"'+"\n";
          for( var i = 0; i < count; i++) {
             var therow = result.rows.item(i);
-            if( format == 'html' ) content += getCardHTML(therow, false);
+                if( format == 'html' ) content += getCardHTML(therow, false, true);
             else if( format == 'csv' ) content += getCardCSV(therow);
             else if( format == 'vcf' ) content += getCardVCF(therow);
          }

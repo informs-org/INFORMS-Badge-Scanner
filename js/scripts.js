@@ -259,7 +259,6 @@ function getEditCardScreen(id)
         display += "<div>NOTE:</div><div><textarea cols='30' rows='4' data-theme='a' onBlur='editField(\""+id+"\", \"NOTE\", this.value)'>"+row.NOTE+"</textarea></div>";
         display += "</div>";
       }
-      display += '<button class="go_home">SAVE AND GO BACK</button>';
       $('#editform').html(display);
     });
   });

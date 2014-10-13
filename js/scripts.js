@@ -250,16 +250,16 @@ function getEditCardScreen(id)
         row = result.rows.item(0);
         display += "<div data-role='fieldcontain'>";
         display += "<h2>"+row.FIRST_NAME+' '+row.LAST_NAME+"</h2>";
-        display += "<div>EMAIL:</div><div><input type='text' onBlur='editField(\""+id+"\", \"EMAIL\", this.value)' value='"+row.EMAIL+"'></div>";
-        display += "<div>ORGANIZATION:</div><div><input type='text' onBlur='editField(\""+id+"\", \"ORGANIZATION\", this.value)' value='"+row.ORGANIZATION+"'></div>";
-        display += "<div>TITLE:</div><div><input type='text' onBlur='editField(\""+id+"\", \"TITLE\", this.value)' value='"+row.TITLE+"'></div>";
-        display += "<div>CITY:</div><div><input type='text' onBlur='editField(\""+id+"\", \"CITY\", this.value)' value='"+row.CITY+"'></div>";
-        display += "<div>STATE:</div><div><input type='text' onBlur='editField(\""+id+"\", \"STATE\", this.value)' value='"+row.STATE+"'></div>";
-        display += "<div>COUNTRY:</div><div><input type='text' onBlur='editField(\""+id+"\", \"COUNTRY\", this.value)' value='"+row.COUNTRY+"'></div>";
-        display += "<div>NOTE:</div><div><textarea cols=30 rows=4 onBlur='editField(\""+id+"\", \"NOTE\", this.value)'>"+row.NOTE+"</textarea></div>";
+        display += "<div>EMAIL:</div><div><input type='text' data-theme='a' onBlur='editField(\""+id+"\", \"EMAIL\", this.value)' value='"+row.EMAIL+"'></div>";
+        display += "<div>ORGANIZATION:</div><div><input type='text' data-theme='a' onBlur='editField(\""+id+"\", \"ORGANIZATION\", this.value)' value='"+row.ORGANIZATION+"'></div>";
+        display += "<div>TITLE:</div><div><input type='text' data-theme='a' onBlur='editField(\""+id+"\", \"TITLE\", this.value)' value='"+row.TITLE+"'></div>";
+        display += "<div>CITY:</div><div><input type='text' data-theme='a' onBlur='editField(\""+id+"\", \"CITY\", this.value)' value='"+row.CITY+"'></div>";
+        display += "<div>STATE:</div><div><input type='text' data-theme='a' onBlur='editField(\""+id+"\", \"STATE\", this.value)' value='"+row.STATE+"'></div>";
+        display += "<div>COUNTRY:</div><div><input type='text' data-theme='a' onBlur='editField(\""+id+"\", \"COUNTRY\", this.value)' value='"+row.COUNTRY+"'></div>";
+        display += "<div>NOTE:</div><div><textarea cols='30' rows='4' data-theme='a' onBlur='editField(\""+id+"\", \"NOTE\", this.value)'>"+row.NOTE+"</textarea></div>";
         display += "</div>";
       }
-      display += '<button id="go_home">SAVE AND GO BACK</button>';
+      display += '<button data-theme="a" class="go_home">SAVE AND GO BACK</button>';
       $('#editform').html(display);
     });
   });
@@ -418,7 +418,7 @@ $(document).ready( function() {
     getContact('http://q.informs.org/?q=test');
   });
 */
-  $('#go_home').click( function() {
+  $('.go_home').click( function() {
     $.mobile.pageContainer.pagecontainer("change", "");
   });
   $('.popup').click( function() {

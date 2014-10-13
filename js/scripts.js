@@ -192,7 +192,7 @@ function resetPage() {
   $('#collected_card_list').html('');
   $('#p').html('');
   displayContactActionButtons();
-  location.reload();
+  //location.reload();
 }
 
 function getDeleteButton(id)

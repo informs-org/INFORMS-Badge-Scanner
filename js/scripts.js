@@ -156,7 +156,6 @@ function getContact(url) {
   db.transaction( function(tx) {
     var sql = "SELECT * FROM CONTACT WHERE ENC_CUST_ID = '"+q+"'";
     tx.executeSql( sql, [], function(tx, result) {
-        $('#p').html(sql);
       var therows = result.rows;
       if( therows.length == 0 )
       {
@@ -260,6 +259,7 @@ function getEditCardScreen(id)
         display += "<div>NOTE:</div><div><textarea cols=30 rows=4 onBlur='editField(\""+id+"\", \"NOTE\", this.value)'>"+row.NOTE+"</textarea></div>";
         display += "</div>";
       }
+      display += '<button id="go_home">SAVE AND GO BACK</button>';
       $('#editform').html(display);
     });
   });
@@ -268,7 +268,7 @@ function getEditCardScreen(id)
 function showCollectedCards()
 {
   db.transaction( function(tx) {
-       var sql = "SELECT * FROM CONTACT";
+       var sql = "SELECT * FROM CONTACT ORDER BY FIRST_NAME";
        tx.executeSql( sql, [], function(tx, result) {
          var therows = result.rows;
          var count = therows.length;
@@ -418,6 +418,9 @@ $(document).ready( function() {
     getContact('http://q.informs.org/?q=test');
   });
 */
+  $('#go_home').click( function() {
+    $.mobile.pageContainer.pagecontainer("change", "");
+  });
   $('.popup').click( function() {
     clearTimeout(popupTimer);
     $(this).popup("close");

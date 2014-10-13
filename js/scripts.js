@@ -151,7 +151,7 @@ function getContact(url) {
         $('#p').html('Please wait ...');
         $.ajax({
           dataType: "json",
-          url: url,
+          url: url+'&ibr=1',
           //data: 'id='+id,
           success: data_success,
           error: ajax_error
@@ -207,7 +207,6 @@ function getEditButton(id)
 
 function deleteCard(id)
 {
-  alert('deleting: ' + id);
   db.transaction( function(tx) {
        var sql = "DELETE FROM CONTACT WHERE ENC_CUST_ID = '"+id+"'";
        tx.executeSql( sql, [], function(tx, result) {
@@ -331,7 +330,6 @@ function displayContactActionButtons()
   db.transaction( function(tx) {
     var sql = "SELECT * FROM CONTACT";
     tx.executeSql( sql, [], function(tx, result) {
-alert(result.rows.length + ' rows in CONTACT');
       if( result.rows.length == 0 ) {
         $('#LIST').hide();
         $('#EMPTY').hide();

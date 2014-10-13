@@ -207,6 +207,7 @@ function getEditButton(id)
 
 function deleteCard(id)
 {
+  alert('deleting: ' + id);
   db.transaction( function(tx) {
        var sql = "DELETE FROM CONTACT WHERE ENC_CUST_ID = '"+id+"'";
        tx.executeSql( sql, [], function(tx, result) {

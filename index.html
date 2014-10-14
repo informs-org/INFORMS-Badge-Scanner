@@ -14,7 +14,7 @@
     <script type="text/javascript" src="js/scripts.js"></script>
   </head>
   <body>
-  <audio src="audio/ding.mp3" id="ding"></audio>
+    <audio src="audio/ding.mp3" id="ding"></audio>
     <div data-role="page" id="main_page">
       <div data-role="header" data-theme="b">
         INFORMS Badge Reader
@@ -24,7 +24,6 @@
       <div data-role="content">
         <button class="item_menu" id="SCAN" data-theme="a">Scan Badge</button>
         <button class="item_menu" id="LIST" data-theme="a">Show All Cards</button>
-        <button class="item_menu" id="EMPTY" data-theme="a">Delete All Cards</button>
         <button class="item_menu" id="SHOW_EMAIL_FORM" data-theme="a">Email All Cards</button>
         <div id="EMAIL_FORM">
             <div data-role="fieldcontain" id="FORMAT_CHOICES">
@@ -74,7 +73,9 @@
         <h2>Edit INFORMS Contact</h2>
         <div id="editform">
         </div>
-        <button class="go_home">SAVE AND GO BACK</button>
+        <div id="editmsg">
+        </div>
+        <button class="go_home">MAIN MENU</button>
       </div>
     </div><!-- page -->
     
@@ -87,7 +88,7 @@
       <div data-role="content" data-theme="b">
         <h2>Options</h2>
         <div class="ui-grid-a">
-          <div class="ui-block-a">Re-initialize database</div>
+          <div class="ui-block-a">Delete all badge info</div>
           <div class="ui-block-b"><button id="reinitdb_button">Re-initialize</button></div>
         </div>
         <button data-icon="back" id="back_button" data-theme="a">Back</button>

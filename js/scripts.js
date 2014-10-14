@@ -222,6 +222,7 @@ function editField(id, field, value)
   db.transaction( function(tx) {
        var sql = "UPDATE CONTACT SET "+field+" = '"+value+"' WHERE ENC_CUST_ID = '"+id+"'";
        tx.executeSql( sql, [], function(tx, result) {
+          $('#editmsg').html('Change saved');
        });
   });
 }
@@ -391,8 +392,11 @@ $(document).ready( function() {
     if( ret == true )
     {
       deleteCollectedCards();
+      $.mobile.pageContainer.pagecontainer("change", "");
+      showCollectedCards();
     }
   });
+/*
   $('#EMPTY').click( function() {
     ret = confirm('Are you sure?');
     if( ret == true )
@@ -401,6 +405,7 @@ $(document).ready( function() {
       showCollectedCards();
     }
   });
+*/
   $('#scan_button').click( function() {
     scan();
   });

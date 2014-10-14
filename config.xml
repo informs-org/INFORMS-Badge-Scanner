@@ -2,8 +2,8 @@
 <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "org.informs.vendorqr"
-        versionCode = "11"
-        version     = "0.0.2" >
+        versionCode = "12"
+        version     = "0.0.3" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -14,7 +14,7 @@
     </description>
 
     <author href="https://www.informs.org" email="sangeetha.menon@informs.org">
-        Sangeetha Menon
+        INFORMS
     </author>
 
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>

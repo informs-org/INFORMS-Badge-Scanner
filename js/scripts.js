@@ -5,7 +5,6 @@ var active_item = '';
 var db = openDatabase( 'INFORMS contact', '', 'INFORMS Contact Database', 2 * 1024 * 1024 );
 var popupTimer = null;
 var ding = null;
-var buzzer = null;
 
 // create the database tables if they do not already exist
 db.transaction(function ( tx ) {
@@ -19,9 +18,7 @@ function getCardHTML(arr, showActionButtons, showNote)
 {
     var display = '<table style="border:1px solid black; background:white; margin:auto; width:100%">'+
                   '<tr>'+
-                      //'<td>NAME</td>'+
                       '<td style="background-color:purple; color:white; border:1px dotted purple; vertical-align:bottom; padding:3px;">'+arr.FIRST_NAME+' '+arr.LAST_NAME;
-                      //'<td class="contact_name">'+arr.FIRST_NAME+' '+arr.LAST_NAME;
 
     if( showActionButtons == true )
     {
@@ -34,19 +31,16 @@ function getCardHTML(arr, showActionButtons, showNote)
 
        if( arr.EMAIL != NA )
        display += '<tr>'+
-                      //'<td>EMAIL</td>'+
                       '<td class="details">'+arr.EMAIL+'</td>'+
                   '</tr>';
 
        if( arr.ORGANIZATION != NA )
        display += '<tr>'+
-                      //'<td>ORGANIZATION</td>'+
                       '<td class="details">'+arr.ORGANIZATION+'</td>'+
                   '</tr>';
 
        if( arr.TITLE != NA )
        display += '<tr>'+
-                      //'<td>TITLE</td>'+
                       '<td class="details">'+arr.TITLE+'</td>'+
                   '</tr>';
 
@@ -57,13 +51,11 @@ function getCardHTML(arr, showActionButtons, showNote)
 
        if( loc != NA )
        display += '<tr>'+
-                      //'<td>LOCATION</td>'+
                       '<td class="details">'+loc+'</td>'+
                   '</tr>';
 
        if( arr.COUNTRY != NA )
        display += '<tr>'+
-                      //'<td>COUNTRY</td>'+
                       '<td class="details">'+arr.COUNTRY+'</td>'+
                   '</tr>';
 
@@ -71,7 +63,6 @@ function getCardHTML(arr, showActionButtons, showNote)
     {
        if( arr.NOTE != '' )
        display += '<tr>'+
-                      //'<td>NOTE</td>'+
                       '<td class="details">NOTES: '+arr.NOTE+'</td>'+
                   '</tr>';
     }
@@ -134,7 +125,7 @@ function data_success(json) {
                   " );";
         tx.executeSql( sql, [], function(tx, result) {
           //alert( 'Scan successful (id = ' + json.attendee[0].ENC_CUST_ID + ')' );
-          //ding.play();
+          ding.play();
         }, function(){alert('Already scanned!');});
     });
     displayContactActionButtons();
@@ -163,7 +154,6 @@ function getContact(url) {
         $.ajax({
           dataType: "json",
           url: url+'&ibr=1',
-          //data: 'id='+id,
           success: data_success,
           error: ajax_error
         });
@@ -308,7 +298,7 @@ function emailCollectedCards(email, format)
                       $('#SHOW_EMAIL_FORM').show();
                       showCollectedCards();
                     }
-           //,error: ajax_error
+           ,error: ajax_error
          });
        });
    });
@@ -328,6 +318,7 @@ function mediaSuccess() {}
 
 function onLoad() {
   document.addEventListener("deviceready", onDeviceReady, false);
+  displayContactActionButtons();
 /*
   window.addEventListener('load', function() {
     FastClick.attach(document.body);
@@ -357,7 +348,6 @@ function displayContactActionButtons()
 
 function onDeviceReady() {
   ding = loadAudio( 'audio/ding.mp3' );
-  buzzer = loadAudio( 'audio/buzzer.mp3' );
 }
 
 // bind touch events
@@ -376,11 +366,6 @@ $(document).ready( function() {
          var count = therows.length;
          if( count > 0 ) {
            $('#EMAIL_FORM').show();
-/*
-           $('#EMAIL_ADDRESS').show();
-           $('#SEND').show();
-           $('#FORMAT_CHOICES').show();
-*/
            $('#SHOW_EMAIL_FORM').hide();
          }
          else
@@ -401,6 +386,13 @@ $(document).ready( function() {
     $.mobile.pageContainer.pagecontainer("change", "#scanner_page");
     $('#p').html('');
   });
+  $('#reinitdb_button').click( function() {
+    ret = confirm('Are you sure?');
+    if( ret == true )
+    {
+      deleteCollectedCards();
+    }
+  });
   $('#EMPTY').click( function() {
     ret = confirm('Are you sure?');
     if( ret == true )
@@ -412,17 +404,8 @@ $(document).ready( function() {
   $('#scan_button').click( function() {
     scan();
   });
-/*
-  $('#test_scan_button').click( function() {
-    getContact('http://q.informs.org/?q=test');
-  });
-*/
   $('.go_home').click( function() {
     $.mobile.pageContainer.pagecontainer("change", "");
-  });
-  $('.popup').click( function() {
-    clearTimeout(popupTimer);
-    $(this).popup("close");
   });
   $('#back_button').click( function() {
     window.history.back();

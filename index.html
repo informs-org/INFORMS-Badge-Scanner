@@ -15,10 +15,9 @@
   </head>
   <body>
   <audio src="audio/ding.mp3" id="ding"></audio>
-  <audio src="audio/buzzer.mp3" id="buzzer"></audio>
     <div data-role="page" id="main_page">
       <div data-role="header" data-theme="b">
-        INFORMS Contact QR Scanner
+        INFORMS Badge Reader
         <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
@@ -32,13 +31,13 @@
             <fieldset data-role="controlgroup">
                 <legend>Choose a format:</legend>
                 <input type="radio" name="email_format" id="radio-choice-1" value="vcf" checked="checked" />
-                <label for="radio-choice-1">VCARD</label>
+                <label for="radio-choice-1">VCARD (Outlook Contact)</label>
 
                 <input type="radio" name="email_format" id="radio-choice-2" value="csv" />
-                <label for="radio-choice-2">CSV</label>
+                <label for="radio-choice-2">CSV (spreadsheet)</label>
 
                 <input type="radio" name="email_format" id="radio-choice-3" value="html"  />
-                <label for="radio-choice-3">HTML</label>
+                <label for="radio-choice-3">HTML (print format)</label>
             </fieldset>
             </div>
             <input type="text" id="EMAIL_ADDRESS" data-theme="a" placeholder="Your email address"></input>
@@ -46,14 +45,11 @@
         </div>
         <div id="collected_card_list"></div>
       </div>
-      <div data-role="footer" data-position="fixed" data-theme="b">
-        INFORMS
-      </div>
     </div><!-- page -->
     
     <div data-role="page" id="scanner_page">
       <div data-role="header" data-theme="b">
-        INFORMS Contact QR Scanner
+        INFORMS Badge Reader
         <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
@@ -66,14 +62,11 @@
         <button id="scan_button">SCAN BADGE</button>
         <button class="go_home">MAIN MENU</button>
       </div>
-      <div data-role="footer" data-position="fixed" data-theme="b">
-        INFORMS
-      </div>
     </div><!-- page -->
     
     <div data-role="page" id="editcontact_page">
       <div data-role="header" data-theme="b">
-        INFORMS Contact QR Scanner
+        INFORMS Badge Reader
         <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
@@ -83,31 +76,21 @@
         </div>
         <button class="go_home">SAVE AND GO BACK</button>
       </div>
-      <div data-role="footer" data-position="fixed" data-theme="b">
-        INFORMS
-      </div>
     </div><!-- page -->
     
     <div data-role="page" id="options_page" data-theme="d">
       <div data-role="header" data-theme="b">
-        INFORMS Contact QR Scanner
+        INFORMS Badge Reader
         <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
       <div data-role="content" data-theme="b">
         <h2>Options</h2>
         <div class="ui-grid-a">
-          <div class="ui-block-a">Auto-close scanner result popup</div>
-          <div class="ui-block-b"><input type="checkbox" id="option_autoclose" /></div>
-          <div class="ui-block-a">Auto-close delay (sec)</div>
-          <div class="ui-block-b"><input type="number" value="2" min="0" max="5" class="input_number" /></div>
           <div class="ui-block-a">Re-initialize database</div>
           <div class="ui-block-b"><button id="reinitdb_button">Re-initialize</button></div>
         </div>
         <button data-icon="back" id="back_button" data-theme="a">Back</button>
-      </div>
-      <div data-role="footer" data-position="fixed" data-theme="b">
-        INFORMS
       </div>
     </div><!-- page -->
   </body>

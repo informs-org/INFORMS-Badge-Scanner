@@ -35,14 +35,6 @@
     <icon src="icon-72.png" gap:platform="ios" width="72" height="72" />
     <icon src="icon-72@2x.png" gap:platform="ios" width="144" height="144" />
 
-    <!-- Settings Icon -->
-    <icon src="icon-small.png" gap:platform="ios" width="29" height="29" />
-    <icon src="icon-small@2x.png" gap:platform="ios" width="58" height="58" />
-
-    <!-- Spotlight Icon -->
-    <icon src="icon-40.png" gap:platform="ios" width="40" height="40" />
-    <icon src="icon-40@2x.png" gap:platform="ios" width="80" height="80" />
-
   <!-- iOS 7.0+ -->
 
     <icon src="icon-76.png" gap:platform="ios" width="76" height="76" />
@@ -65,8 +57,5 @@
     <gap:splash src="Default-568h.png" gap:platform="ios" width="320" height="568" />
     <gap:splash src="Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
 
-    <!-- iPad -->
-    <gap:splash src="Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
-    <gap:splash src="Default-Landscape.png" gap:platform="ios" width="1024" height="768" />
 
 </widget>

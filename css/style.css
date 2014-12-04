@@ -21,15 +21,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
 .ui-checkbox input { width: 30px; height: 30px; }
 
 .contact_name {
-  background-color:purple;
+  background-color:#073585;
   color:white;
-  border:1px dotted purple;
+  border:1px dotted #073585;
   vertical-align:bottom;
   padding:3px;
 }
 
 .details {
-  color:purple;
+  color:#073585;
   padding-left:40px;
 }
 
@@ -39,11 +39,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
   margin:auto;
 }
 
-#LIST { display:none }
-#EMPTY { display:none }
-#SHOW_EMAIL_FORM { display:none }
-#EMAIL_FORM { display:none }
+#LIST, #EMPTY, #SHOW_EMAIL_FORM, #EMAIL_FORM { display:none }
 
+/*
 #scan_button {
    width: 200px;
    height: 100px;
@@ -65,3 +63,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
 
 #popupResult { background: transparent; box-shadow: none; border: none; }
 #popupResult img { display: none; }
+*/

@@ -8,6 +8,7 @@ background: -ms-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb
 background: linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', endColorstr='#ffe3bb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
 .ui-page { background: transparent; }
 .ui-content { padding: 10px; }
 .ui-header { height: 38px; padding: 3px 12px; text-align: center;}
@@ -43,11 +44,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
 #SHOW_EMAIL_FORM { display:none }
 #EMAIL_FORM { display:none }
 
-#scan_button { /*background-image: url('../images/icons-png/qrcode.png');*/ width: 150px; height: 100px; margin: 0 auto; box-shadow: 10px 10px 10px #878; display:block}
-#scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; }
+#scan_button {
+   width: 200px;
+   height: 100px;
+   margin: 30px auto;
+   box-shadow: 10px 10px 10px #878;
+   display:block;
+   background:#073585;
+   color:white;
+   font-size:28pt;
+   border:4px solid orange;
+}
 
-#test_scan_button { /*background-image: url('../images/icons-png/qrcode.png');*/ width: 150px; height: 100px; margin: 0 auto; box-shadow: 10px 10px 10px #878; margin:20px; display:block}
-#test_scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; margin:20px; }
+
+#scan_button:active {
+   box-shadow: 4px 4px 10px #878;
+   left: 2px;
+   top: 2px;
+}
 
 #popupResult { background: transparent; box-shadow: none; border: none; }
 #popupResult img { display: none; }

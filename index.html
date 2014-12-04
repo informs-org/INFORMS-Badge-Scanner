@@ -22,27 +22,27 @@
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
       <div data-role="content">
-        <button class="item_menu" id="SCAN" data-theme="a">Scan Badge</button>
-        <button class="item_menu" id="LIST" data-theme="a">Show All Cards</button>
-        <button class="item_menu" id="SHOW_EMAIL_FORM" data-theme="a">Email All Cards</button>
+        <button class="item_menu" id="SCAN" data-theme="a">Scan a Badge</button>
+        <button class="item_menu" id="LIST" data-theme="a">Show All Contacts Info</button>
+        <button class="item_menu" id="SHOW_EMAIL_FORM" data-theme="a">Email All Contacts Info</button>
         <div id="EMAIL_FORM">
-            <div data-role="fieldcontain" id="FORMAT_CHOICES">
-            <fieldset data-role="controlgroup">
-                <legend>Choose a format:</legend>
-                <input type="radio" name="email_format" id="radio-choice-1" value="vcf" checked="checked" />
-                <label for="radio-choice-1">VCARD (Outlook Contact)</label>
+            Choose a format:
+            <SELECT name='email_format' id="FORMAT_CHOICES">
+                <option value="">Choose format</option>
 
-                <input type="radio" name="email_format" id="radio-choice-2" value="csv" />
-                <label for="radio-choice-2">CSV (spreadsheet)</label>
+                <option value="vcf">VCARD (Outlook Contact)</option>
 
-                <input type="radio" name="email_format" id="radio-choice-3" value="html"  />
-                <label for="radio-choice-3">HTML (print format)</label>
-            </fieldset>
-            </div>
+                <option value="csv">CSV (spreadsheet)</option>
+
+                <option value="html">HTML (print format)</option>
+            </SELECT>
             <input type="text" id="EMAIL_ADDRESS" data-theme="a" placeholder="Your email address"></input>
             <button id="SEND">send</button>
         </div>
         <div id="collected_card_list"></div>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        INFORMS
       </div>
     </div><!-- page -->
     
@@ -53,13 +53,15 @@
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
       <div data-role="content">
-        <h2>Scanning for Contact Details</h2>
         <div data-role="popup" id="popupResult" data-overlay-theme="a" class="popup ui-content" data-transition="pop">
         </div>
-        <button id="scan_button">SCAN BADGE</button>
+        <!-- button id="scan_button">SCAN</button -->
         <div id="p">
         </div>
-        <button class="go_home">MAIN MENU</button>
+    
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        <button data-icon="back" class="back_button" data-theme="b" data-direction="reverse">Back</button>
       </div>
     </div><!-- page -->
     
@@ -77,6 +79,9 @@
         </div>
         <button class="go_home">MAIN MENU</button>
       </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        <button data-icon="back" class="back_button" data-theme="b" data-direction="reverse">Back</button>
+      </div>
     </div><!-- page -->
     
     <div data-role="page" id="options_page" data-theme="d">
@@ -87,10 +92,10 @@
       </div>
       <div data-role="content" data-theme="b">
         <h2>Options</h2>
-        <div class="ui-grid-a">
-          <div class="ui-block-b"><button id="reinitdb_button">Delete all Badges</button></div>
-        </div>
-        <button data-icon="back" id="back_button" data-theme="a">Back</button>
+        <button id="reinitdb_button">Delete all Badges</button>
+      </div>
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        <button data-icon="back" class="back_button" data-theme="b" data-direction="reverse">Back</button>
       </div>
     </div><!-- page -->
   </body>

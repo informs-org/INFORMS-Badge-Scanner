@@ -96,12 +96,17 @@ function getCardVCF(arr)
   var display = "BEGIN:VCARD\n"+
                 "VERSION:3.0\n"+
                 "N:\n"+arr.LAST_NAME+";"+arr.FIRST_NAME+";;;\n"+
-                "FN:"+arr.FIRST_NAME+" "+arr.LAST_NAME+"\n"+
-                "TITLE:"+arr.TITLE+"\n"+
-                "NOTE:"+arr.NOTE+"\n"+
+                "FN:"+arr.FIRST_NAME+" "+arr.LAST_NAME+"\n";
+
+  if( arr.TITLE != NA )
+     display += "TITLE:"+arr.TITLE+"\n";
+
+     display += "NOTE:"+arr.NOTE+"\n"+
                 "ADR;TYPE=WORK:;;;"+arr.CITY+';'+arr.STATE+';;'+arr.COUNTRY+"\n"+
-                "ORG:"+arr.ORGANIZATION+"\n"+
-                "END:VCARD\n";
+                "ORG:"+arr.ORGANIZATION+"\n";
+                if( arr.EMAIL != NA ) display += "EMAIL:"+arr.EMAIL+"\n";
+
+     display += "END:VCARD\n";
   return display;
 }
 
@@ -161,6 +166,7 @@ function getContact(url) {
       else
       {
         alert('Badge already scanned!');
+        $.mobile.pageContainer.pagecontainer("change", "");
       }
     });
   });
@@ -265,7 +271,7 @@ function showCollectedCards()
          var display = '';
          for( var i = 0; i < count; i++) {
             var therow = result.rows.item(i);
-            display += getCardHTML(therow, true, false);
+            display += getCardHTML(therow, true, true);
          }
          $('#collected_card_list').html(display);
        });
@@ -283,16 +289,19 @@ function emailCollectedCards(email, format)
          if( format == 'csv' ) content = '"NAME","EMAIL","ORGANIZATION","TITLE","CITY","STATE","COUNTRY","NOTES"'+"\n";
          for( var i = 0; i < count; i++) {
             var therow = result.rows.item(i);
-                if( format == 'html' ) content += getCardHTML(therow, false, true);
+                 if( format == 'html' ) content += getCardHTML(therow, false, true);
             else if( format == 'csv' ) content += getCardCSV(therow);
-            else if( format == 'vcf' ) content += getCardVCF(therow);
+            else {
+               format = 'vcf';
+               content += getCardVCF(therow);
+            }
          }
          $('#collected_card_list').html('Please wait ...');
          $.ajax({
            dataType: 'html',
-           url: 'https://biblio.informs.org/email.php',
+           url: 'https://services.informs.org/email_contacts.php',
            type: 'POST',
-           data: { content: content, email: email, format: format },
+           data: { content: content, email: email, format: format, token: 'vBm7zPnRseKKf2La' },
            success: function(msg) {
                       if( msg != '' ) alert('NOTE: '+msg);
                       $('#EMAIL_FORM').hide();
@@ -377,14 +386,16 @@ $(document).ready( function() {
      });
   });
   $('#SEND').click( function() {
-    emailCollectedCards($('#EMAIL_ADDRESS').val(), $('input[name=email_format]:checked').val());
+    emailCollectedCards($('#EMAIL_ADDRESS').val(), $('#FORMAT_CHOICES').val());
+    //emailCollectedCards($('#EMAIL_ADDRESS').val(), $('input[name=email_format]:checked').val());
   });
   $('#LIST').click( function() {
     showCollectedCards();
   });
   $('#SCAN').click( function() {
-    active_item = $(this).attr( 'id' );
     $.mobile.pageContainer.pagecontainer("change", "#scanner_page");
+    scan();
+    //getContact('https://q.informs.org/?q=vBm7zPnRseKKf2La');
     $('#p').html('');
   });
   $('#reinitdb_button').click( function() {
@@ -396,23 +407,15 @@ $(document).ready( function() {
       showCollectedCards();
     }
   });
-/*
-  $('#EMPTY').click( function() {
-    ret = confirm('Are you sure?');
-    if( ret == true )
-    {
-      deleteCollectedCards();
-      showCollectedCards();
-    }
+/*  $('#scan_button').click( function() {
+    //scan();
+    getContact('https://q.informs.org/?q=vBm7zPnRseKKf2La');
   });
 */
-  $('#scan_button').click( function() {
-    scan();
-  });
   $('.go_home').click( function() {
     $.mobile.pageContainer.pagecontainer("change", "");
   });
-  $('#back_button').click( function() {
-    window.history.back();
+  $('.back_button').click( function() {
+    parent.history.back();
   });
 });

@@ -18,7 +18,7 @@ function getCardHTML(arr, showActionButtons, showNote)
 {
     var display = '<table style="border:1px solid black; background:white; margin:auto; width:100%">'+
                   '<tr>'+
-                      '<td style="background-color:#073585; color:white; border:1px dotted purple; vertical-align:bottom; padding:3px;">'+arr.FIRST_NAME+' '+arr.LAST_NAME;
+                      '<td style="background-color:#e27d1f; color:white; border:1px dotted #e27d1f; vertical-align:bottom; padding:3px;">'+arr.FIRST_NAME+' '+arr.LAST_NAME;
 
     if( showActionButtons == true )
     {
@@ -407,11 +407,6 @@ $(document).ready( function() {
       showCollectedCards();
     }
   });
-/*  $('#scan_button').click( function() {
-    //scan();
-    getContact('https://q.informs.org/?q=vBm7zPnRseKKf2La');
-  });
-*/
   $('.go_home').click( function() {
     $.mobile.pageContainer.pagecontainer("change", "");
   });

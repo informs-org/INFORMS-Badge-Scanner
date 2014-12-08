@@ -1,12 +1,13 @@
 body {
-background: #bbd4f1; /* Old browsers */
-background: -moz-linear-gradient(45deg,  #bbd4f1 0%, #c4dff6 0%, #cbd5fb 0%, #ffe3bb 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#bbd4f1), color-stop(0%,#c4dff6), color-stop(0%,#cbd5fb), color-stop(100%,#ffe3bb)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* IE10+ */
-background: linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', endColorstr='#ffe3bb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+color:white;
+background: #073585; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #073585 0%, #073585 0%, #073585 0%, #073585 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#073585), color-stop(0%,#073585), color-stop(0%,#073585), color-stop(100%,#073585)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg,  #073585 0%,#073585 0%,#073585 0%,#073585 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg, #073585 0%, #073585 0%, #073585 0%, #073585 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg, #073585 0%, #073585 0%, #073585 0%, #073585 100%); /* IE10+ */
+background: linear-gradient(45deg,  #073585 0%,#073585 0%,#073585 0%,#073585 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#073585', endColorstr='#073585',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .ui-page { background: transparent; }
@@ -21,7 +22,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
 .ui-checkbox input { width: 30px; height: 30px; }
 
 .contact_name {
-  background-color:#073585;
+  background-color:#e27d1f;
   color:white;
   border:1px dotted #073585;
   vertical-align:bottom;
@@ -40,6 +41,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
 }
 
 #LIST, #EMPTY, #SHOW_EMAIL_FORM, #EMAIL_FORM { display:none }
+#p, #collected_card_list {color:white;}
 
 /*
 #scan_button {
